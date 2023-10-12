@@ -11,3 +11,4 @@ struct tagTREE
 int AccessTree(TREE** T, int Key);
 int AccessTree1(TREE** T, int Key);
 int DelTreeNode(TREE** T, int Key);
+int Linearize(TREE** T);

@@ -10,7 +10,9 @@ void main(void)
 	AccessTree1(&Root, 8);
 	AccessTree1(&Root, 13);
 	AccessTree1(&Root, 9);
-	DelTreeNode(&Root, 15);
+	AccessTree1(&Root, 16);
+	//DelTreeNode(&Root, 10);
+	Linearize(&Root);
 
 	printf("");
 }

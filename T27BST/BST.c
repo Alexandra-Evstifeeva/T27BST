@@ -102,9 +102,45 @@ int DelTreeNode(TREE** T, int Key)
 		// *p - обращение к узлу дерева для записи в него значения
 		// Именно поэтому нет необходимости хранить предка узла!!
 		*p = (*T)->More;
+		// Вершина левого поддерева становится вршиной нового дерева
 		*T = (*T)->Less;
 	}
 
 	free(old);
 	return 1;
+}
+
+int Linearize(TREE** T)
+{
+	TREE** p, * tmp;
+	int n = 0;
+
+	while (*T != NULL)
+	{
+		// !!!!
+		p = &(*T)->Less;
+		while (*p != NULL)
+		{
+			// !!!!
+			tmp = *p;
+			// !!!
+			while (*p != NULL)
+			{
+				p = &(*p)->More;
+			}
+			// !!
+			*p = *T;
+			(*T)->Less = NULL;
+			// !!!
+			*T = tmp;
+			// !!!
+			p = &(*T)->Less;
+		}
+		// !!!
+		T = &(*T)->More;
+		n++;
+	}
+
+
+	return n;
 }
